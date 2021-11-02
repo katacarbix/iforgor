@@ -1,7 +1,11 @@
-
-
-function funcname() {
-   //Code
+function foo(arg){
+    console.log(arg);
 }
+foo();
 
-funcname()
+// Alternatively,
+
+let bar = (arg) => {
+    console.log(arg);
+}
+bar();

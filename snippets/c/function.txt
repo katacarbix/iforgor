@@ -1,15 +1,9 @@
 void func1(int INT1, int INT2){
-
     // Code
-
-}
-// Will return nothing as it has been declared a void, it will only execute its code 
-
+} // Will return nothing as it has been declared void
 
 int func2(int INT1, int INT2){
-
-    return aninteger;
-
+    return INT1 + INT2;
 }
 
 void main(){

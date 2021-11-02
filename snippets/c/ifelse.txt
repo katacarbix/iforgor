@@ -1,10 +1,7 @@
-if (test expression) 
-{
-   //code
-}
-else if (other test expression) {
-   //Code
-}
-else {
-   //runs if all test expressions are false
+if (test expression){
+    //code
+} else if (other test expression){
+    //code
+} else {
+    //runs if all test expressions are false
 }

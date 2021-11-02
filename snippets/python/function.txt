@@ -1,6 +1,4 @@
-def main(arg):  #Declare
-    //code
-    return 0;
+def main(arg):
+    print(arg)
 
-
-main(arg) #Call
+main(arg)
