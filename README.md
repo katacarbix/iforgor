@@ -9,16 +9,17 @@ Creates symlinks of iforgor.py and the snippets folder to a directory in your $P
 - Git
 - Bash
 - Python
-  - The colorama python module
+  - The Pygments python module
 
 ### Step by step procedure
 1. Open a terminal and cd into the directory you want to install the program into.
 2. Run `git clone https://github.com/Solirs/iforgor/`
 3. Cd into the newly created `iforgor` directory
-4. Run `./setup.sh`
+4. Run `pip install -r requirements.txt`
+5. Run `./setup.sh`
     Must be run as root unless the argument `local` is specified.
     Use the `ungit` argument to remove unnecessary files related to the git repository.
-5. Run `iforgor -h`
+6. Run `iforgor -h`
 
 If it works, the install was successful. You can now delete setup.sh if you'd like.
 
@@ -32,7 +33,7 @@ To display a piece of code, run the following:
 iforgor LANGUAGE SNIPPET
 ```
 
-The `language` argument represents a folder in the "snippets" directory. You can add any language you want by creating a folder in it.
+The `language` argument represents a folder in the "snippets" directory. You can add any language you want by creating a folder in it. Make sure it matches the relevant [short name](https://pygments.org/docs/lexers/) if you want syntax highlighting to work.
 
 The `snippet` argument represents a .txt file in the specified language directory that containd the code sample you want to display. You can add any code sample by creating a .txt in a desired language folder.
 
@@ -44,7 +45,7 @@ So for example if you want to add a function sample for the Rust language, you w
 - There are default snippets yes, but iforgor is designed to be customized, don't hesitate to add your own custom snippets and languages.
 
 ## Screenshots:
-![demo image](resources/demo3.png)
+![demo image](resources/screenshot.png)
 
 ## Compatibility
 iforgor should work on any Linux or Unix based system that has Python installed. It may also work on Windows, aside from `setup.sh`.

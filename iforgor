@@ -12,10 +12,10 @@ def main():
 	parser = argparse.ArgumentParser(description='')
 	parser.add_argument("lang",
 						type=str.lower,
-						help='The snippets language.')
+						help='The snippet\'s language')
 	parser.add_argument("snippet",
 						type=str.lower,
-						help='The code snippet you want to display.')
+						help='The code snippet you want to display')
 	args = parser.parse_args()
 
 	try:
