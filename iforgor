@@ -1,26 +1,39 @@
 #!/usr/bin/env python3
-
+# PYTHON_ARGCOMPLETE_OK
 import argparse
 import os
 import sys
 
-from pygments import highlight
-from pygments.lexers import get_lexer_by_name
-from pygments.formatters import TerminalFormatter
+def LanguageCompleter(**kwargs):
+	return os.listdir(os.path.join(os.path.dirname(__file__), 'snippets'))
+
+def SnippetCompleter(parsed_args, **kwargs):
+	print(parsed_args)
+	snippets = os.listdir(os.path.join(os.path.dirname(__file__), 'snippets', parsed_args.lang))
+	return list(map(lambda filename: filename.rstrip('.txt'), snippets))
+
+parser = argparse.ArgumentParser(description='')
+parser.add_argument(dest='lang',
+					type=str.lower,
+					help='The snippet\'s language').completer = LanguageCompleter
+parser.add_argument(dest='snippet',
+					type=str.lower,
+					help='The code snippet you want to display').completer = SnippetCompleter
+try:
+	import argcomplete
+	argcomplete.autocomplete(parser)
+except Exception as e:
+	pass
+args = parser.parse_args()
 
 def main():
-	parser = argparse.ArgumentParser(description='')
-	parser.add_argument("lang",
-						type=str.lower,
-						help='The snippet\'s language')
-	parser.add_argument("snippet",
-						type=str.lower,
-						help='The code snippet you want to display')
-	args = parser.parse_args()
-
 	try:
 		filename = os.path.join(os.path.dirname(__file__), 'snippets', args.lang, args.snippet+'.txt')
 		with open(filename, 'r') as f:
+			from pygments import highlight
+			from pygments.lexers import get_lexer_by_name
+			from pygments.formatters import TerminalFormatter
+
 			lexer = get_lexer_by_name(args.lang, stripall=True)
 			formatter = TerminalFormatter(bg='dark')
 			sys.stdout.write(highlight(f.read(), lexer, formatter))

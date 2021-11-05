@@ -1,0 +1,29 @@
+let fruits = ['Apple', 'Banana']
+
+let newLength = fruits.push('Orange') // Add to the end
+// ["Apple", "Banana", "Orange"]
+
+let last = fruits.pop() // Remove from the end
+// ["Apple", "Banana"]
+
+let first = fruits.shift() // Remove from the beginning
+// ["Banana"]
+
+let newLength = fruits.unshift('Strawberry') // Add to the beginning
+// ["Strawberry", "Banana"]
+
+let pos = fruits.indexOf('Banana') // Find the index of an item
+// 1
+
+fruits.push('Mango')
+// ["Strawberry", "Banana", "Mango"]
+
+let shallowCopy = fruits.slice() // Make a copy
+
+// Copy a section
+let sectionCopy = fruits.slice(1, 2) // (index, count)
+// ["Banana", "Mango"]
+
+// Remove a section
+let removedItem = fruits.splice(1, 1) // (index, count)
+// ["Strawberry", "Mango"]

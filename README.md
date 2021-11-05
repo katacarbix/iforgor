@@ -9,7 +9,8 @@ Creates symlinks of iforgor.py and the snippets folder to a directory in your $P
 - Git
 - Bash
 - Python
-  - The Pygments python module
+  - pygments
+  - argcomplete
 
 ### Step by step procedure
 1. Open a terminal and cd into the directory you want to install the program into.
